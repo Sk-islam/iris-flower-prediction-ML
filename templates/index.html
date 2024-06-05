@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRIS FLOWER PREDICTION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        marquee {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"],
+        input[type="button"] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="button"] {
+            background-color: #dc3545;
+        }
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #218838;
+        }
+        input[type="button"]:hover {
+            background-color: #c82333;
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <marquee direction="right">
+            <font color="green"><b>IRIS FLOWER CLASSIFICATION BY USING MACHINE LEARNING TECHNIQUES</b></font>
+        </marquee>
+    </h1>
+    <div class="container">
+        <img src="{{ url_for('static',filename='irisflower.jpg')}}" alt="Iris Flower">
+    </div>
+    <h1><b><font color="red">Enter data of new flower</font></b></h1>
+    <form action="/predict" method="post">
+        <label for="sl">Sepal length:</label>
+        <input type="text" id="sl" name="sl">
+        <label for="sw">Sepal width:</label>
+        <input type="text" id="sw" name="sw">
+        <label for="pl">Petal length:</label>
+        <input type="text" id="pl" name="pl">
+        <label for="pw">Petal width:</label>
+        <input type="text" id="pw" name="pw">
+        <input type="submit" value="Submit">
+        <input type="button" value="Reset">
+    </form>
+    <h1><font color="red">{{predicted_flower}}</font></h1>
+</body>
+</html>
